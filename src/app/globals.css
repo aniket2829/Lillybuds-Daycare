@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  p {
+    @apply text-custom-p;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-poppins);
+}
+
+.custom-toast {
+  background-color: #1f2937;
+  color: #f9fafb;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.custom-toast-success {
+  background-color: #10b981;
+}
+
+.custom-toast-error {
+  background-color: #ef4444;
+}
+
+.custom-toast-container {
+  top: 100px !important;
+}
