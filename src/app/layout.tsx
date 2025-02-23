@@ -1,32 +1,41 @@
-import Navbar from "@/components/common/navbar";
-import Footer from "@/components/common/footer";
-import { Poppins } from "next/font/google";
+import type { Metadata } from "next";
+// import localFont from "next/font/local";
 import "./globals.css";
-import { Metadata } from "next";
+import Navbar from "@/components/common/navbar";
+import { comfortaa } from "@/config/globals";
+import Footer from "@/components/common/footer";
+import { Toaster } from "@/components/ui/toaster";
 
-// Move the font loader call to the module scope, outside of the Layout component
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title:
-    "Lily Buds Daycare - A Safe and Nurturing environment for you little ones",
+    "Lily Buds Daycare - A Safe And Nurturing Environment For Your Little Ones",
+  description: "A Safe And Nurturing Environment For Your Little Ones",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <>
-      <html lang="en" className={poppins.variable}>
-        <body>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </body>
-      </html>
-    </>
+    <html lang="en">
+      <body className={`antialiased ${comfortaa.className} bg-customColor`}>
+        <Navbar/>
+        {children}
+        <Footer />
+        <Toaster />
+      </body>
+    </html>
   );
 }

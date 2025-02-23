@@ -1,27 +1,44 @@
+import Image from "next/image";
+import Logo from "@/assets/LilyDaycare.svg";
+
 export default function Footer() {
-  const footerData = [
-    { heading: "Location", details: "45879 Berkeley Ave , Chilliwack BC V2P 3N1" },
-    { heading: "Email", details: "info@lilybudsdaycare.ca" },
-    { heading: "Phone", details: "778-838-4848 , 604-808-3231" },
-  ];
   return (
-    <footer className="bg-blue-950 text-white py-6">
-      <div className="container mx-auto flex flex-col md:flex-row justify-evenly px-4">
-        <div className="mb-4 md:mb-0">
-          <h2 className="text-xl font-bold mb-2">Contact Us</h2>
-          {footerData.map((item, index) => (
-            <p key={index}>
-              {item.heading}: {item.details}
-            </p>
-          ))}
+    <div>
+      <div className="flex p-10 justify-between max-w-lg md:max-w-3xl mx-auto mt-20">
+        <div>
+          <h3 className="text-[#DA237F] text-xl md:text-2xl mb-4">
+            Contact Us
+          </h3>
+          <table className="hidden md:table">
+            <tbody className="text-[#227AAD]">
+              <tr>
+                <td className="p-2">Email</td>
+                <td className="p-2">info@lilybudsdaycare.ca</td>
+              </tr>
+              <tr>
+                <td className="p-2">Phone no.</td>
+                <td className="p-2">778-838-4848 , 604-808-3231</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="text-[#227AAD] space-y-3 md:hidden">
+            <p>info@lilybudsdaycare.ca</p>
+            <p>604-808-3231</p>
+          </div>
+        </div>
+        <div>
+          <Image
+            src={Logo}
+            width={120}
+            height={120}
+            alt="LilybudsDaycare"
+            className="mix-blend-darken"
+          />
         </div>
       </div>
-      <div className="text-center mt-4">
-        <p className="text-sm">
-          &copy; {new Date().getFullYear()} Lilly Buds DayCare. All rights
-          reserved.
-        </p>
-      </div>
-    </footer>
+      <p className="text-center pb-8 text-[#227AAD]">
+        {"© 2024 Lilly"} Buds Daycare. All rights reserved.
+      </p>
+    </div>
   );
 }

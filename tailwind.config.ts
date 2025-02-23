@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+export default {
     darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,35 +9,19 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-      keyframes: {
-        scroll: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-      },
-      animation: {
-        'scroll-left': 'scroll 15s linear infinite',
-      },
-      fontSize: {
-        'custom-p': ['16px', { lineHeight: '24px' }],
-      },
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        comic: ['"Comic Sans MS"', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
-      }, 
+  		colors: {
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)'
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-      width: {
-        'customImageWidth': "600px",
-      },
-  		colors: {}
+		backgroundColor: {
+			customColor: "#DFF6FF"
+		}
   	}
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
-};
-export default config;
+} satisfies Config;
